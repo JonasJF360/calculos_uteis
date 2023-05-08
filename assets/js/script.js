@@ -1,5 +1,5 @@
 (App = () => {
-    document.getElementById("calcular").addEventListener("click", manterProporcao);
+    document.querySelector("#calcular").addEventListener("click", manterProporcao);
 
     function manterProporcao() {
         let inputs = [
@@ -33,7 +33,8 @@
         let m1 = parseFloat(lista[1]["value"].replace(",", "."))
         let v2 = parseFloat(lista[2]["value"].replace(",", "."))
         let de = parseFloat(lista[3]["value"].replace(",", "."))
-        let r = ((v2 - de) * m1) / v1
+        v2 = v2 - de
+        let r = (v2 * m1) / v1
 
         return [v1, m1, v2, isNaN(r) ? 0 : r]
     }
