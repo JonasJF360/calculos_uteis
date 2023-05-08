@@ -9,9 +9,8 @@
             document.querySelector("#desc"),
         ]
         if (!verificarValores(inputs)) {
-            console.log("entrou no erro")
             limparImputs(inputs)
-            return 0
+            return
         } else {
 
             let resultado = document.querySelector(".resultado")
@@ -22,29 +21,30 @@
             limparImputs(inputs)
         }
     }
-    function limparImputs(lista) {0
+
+    function limparImputs(lista) {
         for (let valorer of lista) {
             valorer["value"] = ""
         }
     }
 
     function calcularProporcao(lista) {
-        let v1 = parseFloat(lista[0]["value"].replace(",", "."))
-        let m1 = parseFloat(lista[1]["value"].replace(",", "."))
-        let v2 = parseFloat(lista[2]["value"].replace(",", "."))
-        let de = parseFloat(lista[3]["value"].replace(",", "."))
-        v2 = v2 - de
-        let r = (v2 * m1) / v1
+        let valor01 = parseFloat(lista[0]["value"].replace(",", "."))
+        let medida01 = parseFloat(lista[1]["value"].replace(",", "."))
+        let valor02 = parseFloat(lista[2]["value"].replace(",", "."))
+        let desconto = parseFloat(lista[3]["value"].replace(",", "."))
+        valor02 = valor02 - (isNaN(desconto) ? 0 : desconto)
+        let r = (valor02 * medida01) / valor01
 
-        return [v1, m1, v2, isNaN(r) ? 0 : r]
+        return [valor01, medida01, valor02, isNaN(r) ? 0 : r]
     }
 
     function verificarValores(lista) {
         for (let valor of lista) {
-            let temp = valor["value"].replace(",", ".")
-            if (isNaN(parseFloat(temp))) {
-                return false
-            }
+            if (valor["value"] == "") valor["value"] = "0"
+            let temp = valor["value"] == "" ? 0 : valor["value"].replace(",", ".")
+            if (isNaN(parseFloat(temp))) return false
+
         }
         return true
     }
