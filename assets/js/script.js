@@ -24,7 +24,7 @@
     }
     function limparImputs(lista) {0
         for (let valorer of lista) {
-            valorer["value"] = "0"
+            valorer["value"] = ""
         }
     }
 
