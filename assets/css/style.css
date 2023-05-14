@@ -60,6 +60,7 @@ div.caixa-conteudo {
     border-radius: 10px;
     padding: 10px;
     margin: 5px;
+    text-align: center;
 }
 
 div.caixa-conteudo h1 {
@@ -68,12 +69,26 @@ div.caixa-conteudo h1 {
     margin-bottom: 5px;
 }
 
+div.caixa-conteudo sup{
+    user-select: none;
+    font-size: 10px;
+}
+
+div.caixa-conteudo sup:hover{
+    color: crimson;
+}
+
+div.caixa-conteudo form {
+    width: 100%;
+}
+
 div.caixa-conteudo input {
     width: 100%;
     text-align: center;
     border: none;
     border-bottom: #d3d3d3 1px solid;
     font-weight: bold;
+    border-radius: 0px;
 }
 div.caixa-conteudo input:focus {
     color: crimson;
@@ -81,7 +96,8 @@ div.caixa-conteudo input:focus {
 
 div.caixa-conteudo input.botao {
     margin-top: 5px;
-    padding: 2px;
+    margin-bottom: 10px;
+    padding: 4px;
     background-color: #000;
     color: #fff;
     border: none;

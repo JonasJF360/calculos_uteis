@@ -1,13 +1,17 @@
 (App = () => {
-    document.querySelector("#calcular").addEventListener("click", manterProporcao);
+    const btn = document.querySelector(".calcular")
 
-    function manterProporcao() {
+    btn.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
         let inputs = [
-            document.querySelector("#val1"),
-            document.querySelector("#med1"),
-            document.querySelector("#val2"),
-            document.querySelector("#desc"),
+            document.querySelector("#valor_base"),
+            document.querySelector("#medida_base"),
+            document.querySelector("#valor_novo"),
+            document.querySelector("#descontar_novo"),
         ]
+
         if (!verificarValores(inputs)) {
             limparImputs(inputs)
             return
@@ -15,38 +19,39 @@
 
             let resultado = document.querySelector(".resultado")
             const valores = calcularProporcao(inputs)
-            resultado.innerHTML = ""
             resultado.innerHTML = `Se para ${valores[0]} a medida é ${valores[1]}. Então, para ${valores[2]} a medida será ${valores[3].toFixed(2)}.`
 
             limparImputs(inputs)
         }
-    }
 
-    function limparImputs(lista) {
-        for (let valorer of lista) {
-            valorer["value"] = ""
+        function verificarValores(lista) {
+            for (let valor of lista) {
+                if (valor.value == "") valor.value = "0"
+                let temp = valor.value == "" ? 0 : valor.value.replace(",", ".")
+                if (isNaN(parseFloat(temp))) return false
+
+            }
+            return true
         }
-    }
 
-    function calcularProporcao(lista) {
-        let valor01 = parseFloat(lista[0]["value"].replace(",", "."))
-        let medida01 = parseFloat(lista[1]["value"].replace(",", "."))
-        let valor02 = parseFloat(lista[2]["value"].replace(",", "."))
-        let desconto = parseFloat(lista[3]["value"].replace(",", "."))
-        valor02 = valor02 - (isNaN(desconto) ? 0 : desconto)
-        let r = (valor02 * medida01) / valor01
-
-        return [valor01, medida01, valor02, isNaN(r) ? 0 : r]
-    }
-
-    function verificarValores(lista) {
-        for (let valor of lista) {
-            if (valor["value"] == "") valor["value"] = "0"
-            let temp = valor["value"] == "" ? 0 : valor["value"].replace(",", ".")
-            if (isNaN(parseFloat(temp))) return false
-
+        function limparImputs(lista) {
+            for (let valor of lista) {
+                valor.value = ""
+            }
         }
-        return true
-    }
 
+        function calcularProporcao(lista) {
+            let valor_base = parseFloat(lista[0].value.replace(",", "."))
+            let medida_base = parseFloat(lista[1].value.replace(",", "."))
+            let valor_novo = parseFloat(lista[2].value.replace(",", "."))
+            let descontar_novo = parseFloat(lista[3].value.replace(",", "."))
+
+            valor_novo = valor_novo - (isNaN(descontar_novo) ? 0 : descontar_novo)
+            let resultado = (valor_novo * medida_base) / valor_base
+
+            return [valor_base, medida_base, valor_novo, isNaN(resultado) ? 0 : resultado]
+        }
+
+
+    })
 })();

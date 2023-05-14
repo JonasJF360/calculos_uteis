@@ -17,18 +17,20 @@
 
         <section class="conteudo">
             <div class="caixa-conteudo">
-                <h1>manter a proporção</h1>
-                <p>Valor Base</p>
-                <input id="val1" type="text">
-                <p>Medida da base</p>
-                <input id="med1" type="text">
-                <p>Novo valor</p>
-                <input id="val2" type="text">
-                <p>Descontar?</p>
-                <input id="desc" type="text">
-                <input class="botao" id="calcular" type="button" value="Calcular">
-                <h2>Resultado</h2>
-                <p class="resultado">Se para 0 a medida é 0. Então, para 0 a medida será 0.</p>
+                <form action="">
+                    <h1>manter a proporção</h1>
+                    <p>Valor Base <sup title="Valor que será usádo como base para o cálculo.">(?)</sup></p>
+                    <input id="valor_base" type="text" placeholder="0,00">
+                    <p>Medida da base <sup title="Valor referente ao valor base.">(?)</sup></p>
+                    <input id="medida_base" type="text" placeholder="0,00">
+                    <p>Novo valor <sup title="Novo valor que será analizado.">(?)</sup></p>
+                    <input id="valor_novo" type="text" placeholder="0,00">
+                    <p>Descontar? <sup title="Valor que será descontado do novo valor.">(?)</sup></p>
+                    <input id="descontar_novo" type="text" placeholder="0,00">
+                    <input type="submit" class="botao calcular" value="Calcular">
+                    <h2>Resultado</h2>
+                    <p class="resultado"><br><br></p>
+                </form>
             </div>
         </section>
 
@@ -38,7 +40,7 @@
                     Jesus Ferreira</a></h1>
         </footer>
     </div>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script.js" defer></script>
 </body>
 
 </html>
