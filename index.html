@@ -11,35 +11,46 @@
 
 <body>
     <div id="pagina">
+
         <header class="menu">
             <h1>Calculos Úteis Online</h1>
         </header>
 
         <section class="conteudo">
+
             <div class="caixa-conteudo">
-                <form action="">
-                    <h1>manter a proporção</h1>
-                    <p>Valor Base <sup title="Valor que será usádo como base para o cálculo.">(?)</sup></p>
-                    <input id="valor_base" type="text" placeholder="0,00">
-                    <p>Medida da base <sup title="Valor referente ao valor base.">(?)</sup></p>
-                    <input id="medida_base" type="text" placeholder="0,00">
-                    <p>Novo valor <sup title="Novo valor que será analizado.">(?)</sup></p>
-                    <input id="valor_novo" type="text" placeholder="0,00">
-                    <p>Descontar? <sup title="Valor que será descontado do novo valor.">(?)</sup></p>
-                    <input id="descontar_novo" type="text" placeholder="0,00">
-                    <input type="submit" class="botao calcular" value="Calcular">
-                    <h2>Resultado</h2>
-                    <p class="resultado"><br><br></p>
-                </form>
+                <h1>manter a proporção</h1>
+
+                <p>Valor Base <sup title="Valor que será usádo como base para o cálculo.">(?)</sup></p>
+                <input id="valor_base" type="text" placeholder="0,00">
+
+                <p>Valor Referente <sup title="Valor referente ao valor base.">(?)</sup></p>
+                <input id="referente" type="text" placeholder="0,00">
+
+                <p>Nova Base <sup title="Novo valor que será substipuirá a base.">(?)</sup></p>
+                <input id="nova_base" type="text" placeholder="0,00">
+
+                <p>Descontar? <sup title="Valor que será descontado do novo valor.">(?)</sup></p>
+                <input id="descontar" type="text" placeholder="0,00">
+
+                <button id="calcular" class="botao" type="button ">Calcular</button>
+
+                <h2>Resultado</h2>
+                <div id="resultado"></div>
             </div>
+
         </section>
 
         <footer>
             <h1>Feito com <span>&hearts;</span> por:&nbsp;</h1>
-            <h1><a href="https://github.com/JonasJF360/calculos_uteis" target="_blank">Jonas de
-                    Jesus Ferreira</a></h1>
+            <h1>
+                <a href="https://github.com/JonasJF360/calculos_uteis" target="_blank">
+                    Jonas de Jesus Ferreira</a>
+            </h1>
         </footer>
+
     </div>
+
     <script src="./assets/js/script.js" defer></script>
 </body>
 

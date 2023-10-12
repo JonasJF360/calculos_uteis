@@ -1,57 +1,49 @@
-(App = () => {
-    const btn = document.querySelector(".calcular")
+(function () {
 
-    btn.addEventListener("click", function (e) {
+    const inputs = [
+        document.querySelector("#valor_base"),
+        document.querySelector("#referente"),
+        document.querySelector("#nova_base"),
+        document.querySelector("#descontar"),
+    ]
+    const btnCalcular = document.querySelector("#calcular")
+    const resultado = document.querySelector("#resultado")
 
+    function verificarValores() {
+        return inputs.map((valor) => {
+            if (valor.value == "") valor.value = "0.00"
+
+            return (isNaN(parseFloat(valor.value.replace(",", "."))))
+        })
+    }
+
+    function calcularProporcao() {
+        const valor_base = parseFloat(inputs[0].value.replace(",", "."))
+        const referente = parseFloat(inputs[1].value.replace(",", "."))
+        const nova_base = parseFloat(inputs[2].value.replace(",", "."))
+        const descontar = parseFloat(inputs[3].value.replace(",", "."))
+        const nova_base_real = nova_base - descontar
+        const resultado = (nova_base_real * referente) / valor_base
+
+        return [valor_base, referente, nova_base_real, resultado ? resultado : 0]
+    }
+
+    function limparInputs() {
+        inputs.map((valor) => valor.value = "")
+    }
+
+    btnCalcular.addEventListener("click", (e) => {
         e.preventDefault();
 
-        let inputs = [
-            document.querySelector("#valor_base"),
-            document.querySelector("#medida_base"),
-            document.querySelector("#valor_novo"),
-            document.querySelector("#descontar_novo"),
-        ]
-
-        if (!verificarValores(inputs)) {
-            limparImputs(inputs)
-            return
-        } else {
-
-            let resultado = document.querySelector(".resultado")
-            const valores = calcularProporcao(inputs)
-            resultado.innerHTML = `Se para ${valores[0]} a medida é ${valores[1]}. Então, para ${valores[2]} a medida será ${valores[3].toFixed(2)}.`
-
-            limparImputs(inputs)
+        if (verificarValores()) {
+            const valores = calcularProporcao()
+            resultado.innerHTML =
+                `<p>
+                    Se a base é ${valores[0]} e seu valor referente é ${valores[1]}. Então, para a nova base de ${valores[2]} o valor referente será de ${valores[3].toFixed(2)}.
+                </p>`
         }
 
-        function verificarValores(lista) {
-            for (let valor of lista) {
-                if (valor.value == "") valor.value = "0"
-                let temp = valor.value == "" ? 0 : valor.value.replace(",", ".")
-                if (isNaN(parseFloat(temp))) return false
-
-            }
-            return true
-        }
-
-        function limparImputs(lista) {
-            for (let valor of lista) {
-                valor.value = ""
-            }
-        }
-
-        function calcularProporcao(lista) {
-            let valor_base = parseFloat(lista[0].value.replace(",", "."))
-            let medida_base = parseFloat(lista[1].value.replace(",", "."))
-            let valor_novo = parseFloat(lista[2].value.replace(",", "."))
-            let descontar_novo = parseFloat(lista[3].value.replace(",", "."))
-
-            valor_novo = valor_novo - (isNaN(descontar_novo) ? 0 : descontar_novo)
-            let resultado = (valor_novo * medida_base) / valor_base
-
-            return [valor_base, medida_base, valor_novo, isNaN(resultado) ? 0 : resultado]
-        }
-
-
+        limparInputs()
     })
+
 })();

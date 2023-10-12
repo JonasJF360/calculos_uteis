@@ -69,17 +69,13 @@ div.caixa-conteudo h1 {
     margin-bottom: 5px;
 }
 
-div.caixa-conteudo sup{
+div.caixa-conteudo sup {
     user-select: none;
     font-size: 10px;
 }
 
-div.caixa-conteudo sup:hover{
+div.caixa-conteudo sup:hover {
     color: crimson;
-}
-
-div.caixa-conteudo form {
-    width: 100%;
 }
 
 div.caixa-conteudo input {
@@ -89,14 +85,16 @@ div.caixa-conteudo input {
     border-bottom: #d3d3d3 1px solid;
     font-weight: bold;
     border-radius: 0px;
+    margin-bottom: 5px;
 }
+
 div.caixa-conteudo input:focus {
     color: crimson;
 }
 
-div.caixa-conteudo input.botao {
-    margin-top: 5px;
-    margin-bottom: 10px;
+div.caixa-conteudo .botao {
+    margin: 5px 10px;
+    width: 100%;
     padding: 4px;
     background-color: #000;
     color: #fff;
@@ -105,10 +103,11 @@ div.caixa-conteudo input.botao {
     text-transform: uppercase;
 }
 
-div.caixa-conteudo input.botao:hover {
+div.caixa-conteudo .botao:hover {
     background-color: crimson;
 }
-div.caixa-conteudo input.botao:active {
+
+div.caixa-conteudo .botao:active {
     background-color: rgb(228, 74, 105);
 }
 
@@ -116,8 +115,11 @@ div.caixa-conteudo h2 {
     font-size: 15px;
     text-transform: uppercase;
 }
-div.caixa-conteudo p.resultado {
+
+div.caixa-conteudo #resultado {
     background-color: blanchedalmond;
+    width: 100%;
+    min-height: 45px;
     padding: 3px;
     border-radius: 2px;
     border: 1px #b3b3b3 solid;
