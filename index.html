@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Calculos Úteis</title>
+
 </head>
 
 <body>
@@ -14,11 +15,18 @@
 
         <header class="menu">
             <h1>Calculos Úteis Online</h1>
+            <nav>
+                <ul>
+                    <li id="menu_proporcao">Proporção</li>
+                    <li id="menu_polia">Polia</li>
+                </ul>
+            </nav>
         </header>
 
-        <section class="conteudo">
+        <section id="conteudo">
 
-            <div class="caixa-conteudo">
+            <!-- Calcular Proporção -->
+            <div class="caixa-conteudo" id="calcular_proporcao">
                 <h1>manter a proporção</h1>
 
                 <p>Valor Base <sup title="Valor que será usádo como base para o cálculo.">(?)</sup></p>
@@ -33,18 +41,36 @@
                 <p>Descontar? <sup title="Valor que será descontado do novo valor.">(?)</sup></p>
                 <input id="descontar" type="text" placeholder="0,00">
 
-                <button id="calcular" class="botao" type="button ">Calcular</button>
+                <button id="btn_calcular_proporcao" class="botao" type="button ">Calcular</button>
 
                 <h2>Resultado</h2>
-                <div id="resultado"></div>
+                <div class="resultado"></div>
+            </div>
+
+            <!-- Calcular Polia -->
+            <div class="caixa-conteudo" id="calcular_polia">
+                <h1>Calcular Polia</h1>
+
+                <p>Velocidade Atual <sup title="Velocidade atual que o motor trabalha em RPM.">(?)</sup></p>
+                <input id="velocidade_atial" type="text" placeholder="0,00">
+
+                <p>Polia Atual <sup title="Tamanho da polia que o motor usa em centímetro.">(?)</sup></p>
+                <input id="polia_atual" type="text" placeholder="0,00">
+
+                <p>Velocidade desejada <sup title="Velocidade que você deseja na outra extremidade.">(?)</sup></p>
+                <input id="velocidade_desejada" type="text" placeholder="0,00">
+
+                <button id="btn_calcular_polia" class="botao" type="button ">Calcular</button>
+
+                <h2>Resultado</h2>
+                <div class="resultado"></div>
             </div>
 
         </section>
 
         <footer>
-            <h1>Feito com <span>&hearts;</span> por:&nbsp;</h1>
             <h1>
-                <a href="https://github.com/JonasJF360/calculos_uteis" target="_blank">
+                Desenvolvido por: <a href="https://github.com/JonasJF360/calculos_uteis" target="_blank">
                     Jonas de Jesus Ferreira</a>
             </h1>
         </footer>
